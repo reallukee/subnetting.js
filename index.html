@@ -7,7 +7,7 @@
     Repository:     https://github.com/reallukee/flsm.js/
     Descrizione:    HTML
     Autore:         Luca Pollicino (https://github.com/reallukee/)
-    Versione:       0.0.1
+    Versione:       0.0.2
 -->
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
             <h1>FLSM.js</h1>
 
             <h4>
-                v0.0.1
+                v0.0.2
                 <a href="https://github.com/reallukee" target="_blank">Luca Pollicino</a>
             </h4>
 
@@ -36,31 +36,41 @@
                     <fieldset>
                         <legend>Indirizzo Ip</legend>
                    
-                        <input id="ip1" type="number" value="192" min="0" max="255" />
-                        <input id="ip2" type="number" value="168" min="0" max="255" />
-                        <input id="ip3" type="number" value="178" min="0" max="255" />
-                        <input id="ip4" type="number" value="0" min="0" max="255" />
+                        <input id="ip1" type="number" value="192"
+                            min="0" max="255" onchange="subnetChange()" />
+                        <input id="ip2" type="number" value="168"
+                            min="0" max="255" onchange="subnetChange()" />
+                        <input id="ip3" type="number" value="178"
+                            min="0" max="255" onchange="subnetChange()" />
+                        <input id="ip4" type="number" value="0"
+                            min="0" max="255" onchange="subnetChange()" />
                     </fieldset>
         
                     <fieldset>
                         <legend>Subnet Mask</legend>
         
-                        <input id="mask1" type="number" value="255" min="0" max="255" />
-                        <input id="mask2" type="number" value="255" min="0" max="255" />
-                        <input id="mask3" type="number" value="255" min="0" max="255" />
-                        <input id="mask4" type="number" value="0" min="0" max="255" />    
+                        <input id="mask1" type="number" value="255"
+                            min="0" max="255" onchange="subnetChange()" />
+                        <input id="mask2" type="number" value="255"
+                            min="0" max="255" onchange="subnetChange()" />
+                        <input id="mask3" type="number" value="255"
+                            min="0" max="255" onchange="subnetChange()" />
+                        <input id="mask4" type="number" value="0"
+                            min="0" max="255" onchange="subnetChange()" />    
                     </fieldset>
 
                     <fieldset>
                         <legend>Numero di Subnet</legend>
 
-                        <input id="subnetCount" type="number" value="4" onchange="subnetChange()" />
+                        <input id="subnetCount" type="number" value="4"
+                            min="1" max="64" onchange="subnetChange()" />
                     </fieldset>
 
                     <fieldset>
                         <legend>Numero di Host</legend>
 
-                        <input id="hostCount" type="number" value="64" onchange="hostChange()" />
+                        <input id="hostCount" type="number" value="62" 
+                            min="2" max="63" onchange="hostChange()" />
                     </fieldset>
 
                     <input type="button" value="Calcola!" onclick="calc()" />

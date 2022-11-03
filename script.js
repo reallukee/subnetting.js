@@ -7,7 +7,7 @@
     Repository:     https://github.com/reallukee/flsm.js/
     Descrizione:    JS
     Autore:         Luca Pollicino (https://github.com/reallukee/)
-    Versione:       0.0.1
+    Versione:       0.0.2
 */
 
 var ip = 0;
@@ -26,6 +26,24 @@ function subnetChange()
     var subnetCtrl	= document.getElementById('subnetCount');
     var hostCtrl	= document.getElementById('hostCount');
     
+    // Genero la Subnet Mask.
+	assembleMask();
+    
+    // Calcolo i Bit Riservati alla Rete.
+    netBits = 32 - Math.ceil(Math.log2(~mask));
+    // Calcolo i Bit Riservati alla Sottorete.
+    subnetBits = Math.ceil(Math.log2(parseInt(subnetCtrl.value, 10)));
+
+    // Imposto il Numero di Host.
+    hostCtrl.value = Math.pow(2, 32 - netBits - subnetBits) - 2;
+
+    // Calcolo i Bit Riservati agli Host.
+	hostBits = Math.ceil(Math.log2(hostCtrl.value));
+
+    // Imposto il Numero Massimo di Sottoreti.
+    subnetCtrl.max = Math.pow(2, 30 - netBits);
+    // Imposto il Numero Massimo di Host.
+    hostCtrl.max = Math.pow(2, 32 - netBits) - 2;
 }
 
 
@@ -34,6 +52,24 @@ function hostChange()
     var subnetCtrl	= document.getElementById('subnetCount');
     var hostCtrl	= document.getElementById('hostCount');
     
+    // Genero la Subnet Mask.
+	assembleMask();
+
+    // Calcolo i Bit Riservati alla Rete.
+    netBits = 32 - Math.ceil(Math.log2(~mask));
+    // Calcolo i Bit Riservati agli Host.
+	hostBits = Math.ceil(Math.log2(parseInt(hostCtrl.value, 10) + 2));
+
+    // Imposto il Numero di Sottoreti.
+    subnetCtrl.value = Math.pow(2, 32 - netBits - hostBits);
+    
+    // Calcolo i Bit Riservati alla Sottorete.
+    subnetBits = Math.ceil(Math.log2(subnetCtrl.value));
+
+    // Imposto il Numero Massimo di Host.
+    hostCtrl.max = Math.pow(2, 32 - netBits) - 2;
+    // Imposto il Numero Massimo di Sottoreti.
+    subnetCtrl.max = Math.pow(2, 30 - netBits);
 }
 
 
@@ -104,7 +140,7 @@ function calc()
 
     netBits		= 32 - Math.ceil(Math.log2(~mask));
     subnetBits	= Math.ceil(Math.log2(subnetCtrl.value));
-	hostBits	= Math.ceil(Math.log2(hostCtrl.value));
+	hostBits	= 32 - netBits - subnetBits;
 	net			= 1;
 	subnet		= Math.pow(2, subnetBits);
 	host		= Math.pow(2, hostBits) - 2;
@@ -133,7 +169,7 @@ function calc()
         var broadcastIpCtrl			= document.createElement('td');
 
 		var networkIp			= ip + (i << (32  - netBits - subnetBits));
-		var maskIp				= 0xFFFFFFFF ^ (host - 1);
+		var maskIp				= 0xFFFFFFFF ^ (host + 1);
         var firstIp				= networkIp + 1;
         var lastIp				= networkIp + Math.pow(2, hostBits) - 3;
         var defaultGatewayIp	= networkIp + Math.pow(2, hostBits) - 2;
