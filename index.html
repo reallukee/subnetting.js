@@ -1,0 +1,106 @@
+<!--
+    FLSM.js
+
+    Questo progetto è distribuito sotto licenza MIT.
+    Questo progetto è disponibile su GitHub.
+
+    Repository:     https://github.com/reallukee/flsm/
+    Descrizione:    HTML
+    Autore:         Luca Pollicino (https://github.com/reallukee/)
+    Versione:       0.0.1
+-->
+
+<!DOCTYPE html>
+<html lang="it-IT">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FLSM.js</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    </head>
+    <body>
+        <form>
+            <h1>FLSM.js</h1>
+
+            <h4>
+                v0.0.1
+                <a href="https://github.com/reallukee" target="_blank">Luca Pollicino</a>
+            </h4>
+
+            <form>
+                <fieldset>
+                    <legend>Input</legend>
+    
+                    <fieldset>
+                        <legend>Indirizzo Ip</legend>
+                   
+                        <input id="ip1" type="number" value="192" min="0" max="255" />
+                        <input id="ip2" type="number" value="168" min="0" max="255" />
+                        <input id="ip3" type="number" value="178" min="0" max="255" />
+                        <input id="ip4" type="number" value="0" min="0" max="255" />
+                    </fieldset>
+        
+                    <fieldset>
+                        <legend>Subnet Mask</legend>
+        
+                        <input id="mask1" type="number" value="255" min="0" max="255" />
+                        <input id="mask2" type="number" value="255" min="0" max="255" />
+                        <input id="mask3" type="number" value="255" min="0" max="255" />
+                        <input id="mask4" type="number" value="0" min="0" max="255" />    
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Numero di Subnet</legend>
+
+                        <input id="subnetCount" type="number" value="4" onchange="subnetChange()" />
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Numero di Host</legend>
+
+                        <input id="hostCount" type="number" value="64" onchange="hostChange()" />
+                    </fieldset>
+
+                    <input type="button" value="Calcola!" onclick="calc()" />
+                </fieldset>
+            </form>
+            
+            <fieldset>
+                <legend>Output</legend>
+
+                <ul>
+                    <li>Numero Bit Net: <b id="netBits">-</b></li>
+                    <li>Numero Bit Subnet: <b id="subnetBits">-</b></li>
+                    <li>Numero Bit Host: <b id="hostBits">-</b></li>
+                    <li>Numero Net: <b id="net">-</b></li>
+                    <li>Numero Subnet: <b id="subnet">-</b></li>
+                    <li>Numero Host: <b id="host">-</b></li>
+                </ul>
+
+                <table id="output">
+                    <tr>
+                        <th>Indirizzo di Rete</th>
+                        <th>Subnet Mask</th>
+                        <th>Primo Indirizzo</th>
+                        <th>Ultimo Indirizzo</th>
+                        <th>Default Gateway</th>
+                        <th>Broadcast</th>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+        <footer>
+            <p>
+                Hosted With 💖 by
+                <a href="https://github.com/reallukee/flsm" target="_blank">GitHub Pages</a>.
+                Source Code is Available
+                <a href="https://github.com/reallukee/flsm" target="_blank">Here</a>.
+            </p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
