@@ -7,12 +7,12 @@
     Repository:     https://github.com/reallukee/flsm.js/
     Descrizione:    CSS
     Autore:         Luca Pollicino (https://github.com/reallukee/)
-    Versione:       0.0.2
+    Versione:       0.0.3
 */
 
 body {
     font-family: 'Times New Roman';
-    width: 900px;
+    width: fit-content;
     height: auto;
     margin: 0 auto;
     padding: 25px 50px;
@@ -27,16 +27,24 @@ table, tr, td, th {
     padding: 5px;
 }
 
+td, th {
+    text-align: center;
+}
+
 fieldset {
+    width: fit-content;
+    height: auto;
     border-width: 1px;
     border-color: #000;
     border-style: solid;
     border-radius: 5px;
-    margin: 7.5px 0;
-    padding: 10px 15px;
+    margin: 20px 0;
+    padding: 10px 20px;
 }
 
 input {
+    width: 100px;
+    height: auto;
     border-width: 1px;
     border-color: #000;
     border-style: solid;
@@ -48,5 +56,5 @@ input {
 hr {
     border-width: 1px;
     border-color: #000;
-    border-style: solid;   
+    border-style: solid;
 }

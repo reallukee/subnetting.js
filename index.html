@@ -7,7 +7,7 @@
     Repository:     https://github.com/reallukee/flsm.js/
     Descrizione:    HTML
     Autore:         Luca Pollicino (https://github.com/reallukee/)
-    Versione:       0.0.2
+    Versione:       0.0.3
 -->
 
 <!DOCTYPE html>
@@ -20,13 +20,14 @@
         <link rel="stylesheet" type="text/css" href="style.css" />
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
     </head>
-    <body>
+    <body onload="calc()">
         <form>
             <h1>FLSM.js</h1>
 
             <h4>
-                v0.0.2
-                <a href="https://github.com/reallukee" target="_blank">Luca Pollicino</a>
+                Version: v0.0.3
+                <br />
+                Author: <a href="https://github.com/reallukee" target="_blank">Luca Pollicino</a>
             </h4>
 
             <form>
@@ -64,13 +65,23 @@
 
                         <input id="subnetCount" type="number" value="4"
                             min="1" max="64" onchange="subnetChange()" />
+
+                        <ul>
+                            <li>Numero Minimo: <b id="subnetMin">1</b></li>
+                            <li>Numero Massimo: <b id="subnetMax">64</b></li>
+                        </ul>
                     </fieldset>
 
                     <fieldset>
                         <legend>Numero di Host</legend>
 
-                        <input id="hostCount" type="number" value="62" 
-                            min="2" max="63" onchange="hostChange()" />
+                        <input id="hostCount" type="number" value="62"
+                            min="2" max="62" onchange="hostChange()" />
+
+                        <ul>
+                            <li>Numero Minimo: <b id="hostMin">2</b></li>
+                            <li>Numero Massimo: <b id="hostMax">62</b></li>
+                        </ul>
                     </fieldset>
 
                     <input type="button" value="Calcola!" onclick="calc()" />
@@ -91,12 +102,12 @@
 
                 <table id="output">
                     <tr>
-                        <th>Indirizzo di Rete</th>
-                        <th>Subnet Mask</th>
-                        <th>Primo Indirizzo</th>
-                        <th>Ultimo Indirizzo</th>
-                        <th>Default Gateway</th>
-                        <th>Broadcast</th>
+                        <th width="125">Indirizzo di Rete</th>
+                        <th width="125">Subnet Mask</th>
+                        <th width="125">Primo Indirizzo</th>
+                        <th width="125">Ultimo Indirizzo</th>
+                        <th width="125">Default Gateway</th>
+                        <th width="125">Broadcast</th>
                     </tr>
                 </table>
             </fieldset>
@@ -106,6 +117,7 @@
             <p>
                 Hosted With 💖 by
                 <a href="https://github.com/pages" target="_blank">GitHub Pages</a>.
+                <br />
                 Source Code is Available
                 <a href="https://github.com/reallukee/flsm.js" target="_blank">Here</a>.
             </p>
