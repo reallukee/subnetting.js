@@ -1,0 +1,60 @@
+/*
+    VLSM.js
+
+    Questo progetto è distribuito sotto licenza MIT.
+    Questo progetto è disponibile su GitHub.
+
+    Repository:     https://github.com/reallukee/flsm.js/
+    Descrizione:    CSS
+    Autore:         Luca Pollicino (https://github.com/reallukee/)
+    Versione:       0.0.1
+*/
+
+body {
+    font-family: 'Times New Roman';
+    width: fit-content;
+    height: auto;
+    margin: 0 auto;
+    padding: 25px 50px;
+}
+
+table, tr, td, th {
+    border-width: 1px;
+    border-color: #000;
+    border-style: solid;
+    border-collapse: collapse;
+    margin: 10px;
+    padding: 5px;
+}
+
+td, th {
+    text-align: center;
+}
+
+fieldset {
+    width: fit-content;
+    height: auto;
+    border-width: 1px;
+    border-color: #000;
+    border-style: solid;
+    border-radius: 5px;
+    margin: 20px 0;
+    padding: 10px 20px;
+}
+
+input {
+    width: 100px;
+    height: auto;
+    border-width: 1px;
+    border-color: #000;
+    border-style: solid;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 5px 10px;
+}
+
+hr {
+    border-width: 1px;
+    border-color: #000;
+    border-style: solid;
+}
